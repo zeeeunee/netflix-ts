@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 태그명으로 공통으로 지정될 스타일 preset */
+@layer base {
+	body {
+		@apply bg-[#141414] text-white;
+	}
+}
+
+@layer components {
+	.headerLink {
+		@apply cursor-pointer text-sm text-[#efefef] transition duration-[.4s] hover:text-[#b3b3b3];
+	}
+}
