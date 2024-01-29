@@ -1,20 +1,25 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
-  theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-    },
-  },
-  plugins: [],
-}
-export default config
+	content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
+	theme: {
+		// screens: {
+		// 	md: { max: '768px' } //기본 설정인 min-width를 제거하고 max-width로 미디어쿼리 설정
+		// },
+		extend: {
+			//extend안쪽에 내가 쓰고 있는 커스텀 속성을 입력시
+			//기존의 tailwind preset을 유지하면서 마나의 preset을 추가
+			screens: {
+				mmd: { max: '768px' } //기본 설정인 min-width를 제거하고 max-width로 미디어쿼리 설정
+			},
+			spacing: {
+				//1단위를 1rem단위로 변경
+				r1: '1rem',
+				r2: '2rem'
+			}
+		}
+	},
+
+	plugins: []
+};
+export default config;
