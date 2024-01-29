@@ -23,7 +23,7 @@ const Banner = ({ original }: Props) => {
 	}, [original]);
 
 	return (
-		<section className='flex flex-col h-screen px-4 pt-40 pb-20 space-y-4 md:space-y-10 lg:space-y-14'>
+		<section className='relative overflow-hidden flex flex-col h-[60vh] px-4 pt-40 pb-5 space-y-4 md:h-[70vh] md:pd-15 lg:h-[85vh] lg: justify-end lg:pb-20'>
 			{Movie && (
 				<>
 					{/* pic Frame */}

@@ -42,7 +42,7 @@ const Home: NextPage<Props> = (props: Props) => {
 	);
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
 	//Promie.all([promise, promise]).then(()=> 배열에 인수로 전달된 모든 promise객체의 상태가 fullfiled, rejected가 되야지만 이곳 then구문이 동기적으로 실행됨)
 	const [original, top, sf, drama, fantasy, comedy, action] = await Promise.all([
 		fetch(requests.original).then(res => res.json()),
@@ -62,7 +62,8 @@ export const getServerSideProps = async () => {
 			fantasy: fantasy.results,
 			comedy: comedy.results,
 			action: action.results
-		}
+		},
+		revalidate: 60 * 60 * 60 * 24
 	};
 };
 
