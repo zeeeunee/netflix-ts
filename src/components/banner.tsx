@@ -9,7 +9,7 @@ interface Props {
 	original: Movie[];
 }
 
-const Banner: NextPage<Props> = ({ original }: Props) => {
+const Banner = ({ original }: Props) => {
 	//useRef에는 초기값이 없을 수가 없으므로 직접 수동으로 지정해야 되기 때문
 	//useState와 다르게 useRef는 unionType을 지정하지 않더라도 인수로 지정한 초기값을 자동으로 unionType설정처리
 	const loading = useRef<HTMLDivElement>(null);
