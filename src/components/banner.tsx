@@ -26,7 +26,7 @@ const Banner = ({ original }: Props) => {
 			{Movie && (
 				<>
 					{/* pic Frame */}
-					<div className='absolute top-0 left-0 z-[1] w-full h-full opacity-70'>
+					<div className='absolute top-0 left-0 z-[1] w-full h-full opacity-70 '>
 						<Image
 							src={`${baseURL}original${Movie.backdrop_path}`}
 							//alt값은 기본적으로 문자만 전달받도록 타입이 강제되어 있으므로
