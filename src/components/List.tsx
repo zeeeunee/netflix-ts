@@ -10,9 +10,9 @@ interface Props {
 
 const List = ({ movies, title }: Props) => {
 	return (
-		<article className='relative z-[5] mt-10 '>
-			<h2 className='pl-2 mb-5 text-lg md:text-xl lg:text-2xl'>{title}</h2>
-			<ul className='flex'>
+		<article className='relative z-[5] pl-4 '>
+			<h2 className='mb-2 text-lg md:text-xl lg:text-2xl'>{title}</h2>
+			<ul className='flex mb-4 md:mb-8 lg:mb-10'>
 				{movies.map((movie, idx) => {
 					return (
 						<li

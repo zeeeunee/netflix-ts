@@ -24,7 +24,7 @@ interface Props {
 const Home: NextPage<Props> = (props: Props) => {
 	console.log(props);
 	return (
-		<div className='relative w-full h-screen overflow-x-hidden'>
+		<div className='relative w-full h-screen overflow-x-hidden scrollbar-thin scrollbar-thumb-[red] scrollbar-track-[transparent]'>
 			<Head>
 				<title>NETFLIX</title>
 				<link rel='icon' href='/favicon.ico' />
