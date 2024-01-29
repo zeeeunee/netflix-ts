@@ -9,7 +9,11 @@ interface Props {
 }
 
 const Banner: NextPage<Props> = ({ original }: Props) => {
-	const loading = useRef<any>(null);
+	//useRef에는 초기값이 없을 수가 없으므로 직접 수동으로 지정해야 되기 때문
+	//useState와 다르게 useRef는 unionType을 지정하지 않더라도 인수로 지정한 초기값을 자동으로 unionType설정처리
+	const loading = useRef<HTMLDivElement>(null);
+	//useState는 초기값을 집어넣지 않더라도 추후 담기는 값을 인지해서 타입추론
+	//useState는 에외사항에 대한 값을 무조건 unionType으로 지정해야함
 	const [Movie, setMovie] = useState<Movie | null>(null);
 
 	useEffect(() => {
@@ -33,7 +37,7 @@ const Banner: NextPage<Props> = ({ original }: Props) => {
 							quality={70}
 							sizes='(max-width:768px) 100vw, (max-width:1200) 70vw, 100vw'
 							className='object-cover'
-							onLoadingComplete={() => loading.current.remove()}
+							onLoadingComplete={() => loading.current?.remove()}
 						/>
 					</div>
 					{/* gradient layer */}

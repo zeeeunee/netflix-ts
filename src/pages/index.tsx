@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import Header from '@/components/Header';
 import requests from '@/utils/request';
 import { Movie } from '../../types';
-import Banner from '@/components/banner';
+import Banner from '@/components/Banner';
 
 interface Props {
 	original: Movie[];
