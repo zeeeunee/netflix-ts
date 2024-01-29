@@ -16,6 +16,9 @@ const config: Config = {
 				//1단위를 1rem단위로 변경
 				r1: '1rem',
 				r2: '2rem'
+			},
+			backgroundImage: {
+				gradient1: 'linear-gradient(to bottom, rgba(20,20,20,0), rgba(20,20,20,1))'
 			}
 		}
 	},

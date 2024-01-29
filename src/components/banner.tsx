@@ -34,6 +34,8 @@ const Banner: NextPage<Props> = ({ original }: Props) => {
 							className='object-cover'
 						/>
 					</div>
+					{/* gradient layer */}
+					<div className='absolute z-[2] top-0 left-0 w-full h-full bg-gradient1'></div>
 					{/* title */}
 					<h1 className='relative z-[3] text-2xl font-bold md:text-6xl'>{Movie?.title || Movie?.name}</h1>
 
