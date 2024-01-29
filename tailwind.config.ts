@@ -8,7 +8,7 @@ const config: Config = {
 		// },
 		extend: {
 			//extend안쪽에 내가 쓰고 있는 커스텀 속성을 입력시
-			//기존의 tailwind preset을 유지하면서 마나의 preset을 추가
+			//기존의 tailwind preset을 유지하면서 나만의 preset을 추가
 			screens: {
 				mmd: { max: '768px' } //기본 설정인 min-width를 제거하고 max-width로 미디어쿼리 설정
 			},

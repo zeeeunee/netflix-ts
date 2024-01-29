@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { Movie } from '../../types';
 import { useState, useEffect, useRef } from 'react';
 import { baseURL } from '../../url';
-import { NextPage } from 'next';
 import { FaInfoCircle, FaPlay } from 'react-icons/fa';
 
 interface Props {
@@ -23,11 +22,11 @@ const Banner = ({ original }: Props) => {
 	}, [original]);
 
 	return (
-		<section className='relative overflow-hidden flex flex-col h-[60vh] px-4 pt-40 pb-5 space-y-4 md:h-[70vh] md:pd-15 lg:h-[85vh] lg: justify-end lg:pb-20'>
+		<section className='relative flex flex-col h-[60vh] justify-end px-4 pt-40 pb-5 space-y-4 md:h-[70vh] md:pd-15 md:space-y-8 lg:space-y-14 lg:h-[85vh] lg:pb-20'>
 			{Movie && (
 				<>
 					{/* pic Frame */}
-					<div className='absolute top-0 left-0 z-[1] w-full h-full'>
+					<div className='absolute top-0 left-0 z-[1] w-full h-full opacity-70'>
 						<Image
 							src={`${baseURL}original${Movie.backdrop_path}`}
 							//alt값은 기본적으로 문자만 전달받도록 타입이 강제되어 있으므로
