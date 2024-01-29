@@ -5,7 +5,7 @@
 /* 태그명으로 공통으로 지정될 스타일 preset */
 @layer base {
 	body {
-		@apply bg-[#141414] text-white;
+		@apply bg-[#141414] text-white scrollbar-thin scrollbar-thumb-[hotpink] scrollbar-track-[transparent];
 	}
 }
 

@@ -5,6 +5,9 @@ import requests from '@/utils/request';
 import { Movie } from '../../types';
 import Banner from '@/components/Banner';
 
+//npm i tailwind-scrollbar tailwind-scrollbar-hide
+//확장기능중에 Headwind 는 tailwind 기능중에서 최적화된 순서에 맞게 구문 순서 자동 재배치 ctrl+alt+T
+
 interface Props {
 	original: Movie[];
 	top: Movie[];
