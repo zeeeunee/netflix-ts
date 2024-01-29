@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@tailwind base; /*기본 태그선택자에 공통으로 tailwind style preset 지정*/
+@tailwind components; /*클래스 선택자에서 tailwind style preset 지정*/
+@tailwind utilities; /*filter, gradient 요소들의 style preset 지정*/
 
 /* 태그명으로 공통으로 지정될 스타일 preset */
 @layer base {

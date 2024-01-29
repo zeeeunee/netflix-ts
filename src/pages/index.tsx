@@ -4,13 +4,14 @@ import Header from '@/components/Header';
 
 const Home: NextPage = () => {
 	return (
-		<div>
+		//w-screen:100vw, h-screen:100vh, w-full:100%, h-full:100%
+		<div className='relative h-screen'>
 			<Head>
 				<title>NETFLIX</title>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Header />
-			<main>
+			<main className='relative'>
 				<h1>Main Page</h1>
 			</main>
 		</div>
