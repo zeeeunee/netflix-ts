@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Movie } from '../../types';
 import { useState, useEffect, useRef } from 'react';
-import { baseURL } from '../../url';
+import { baseURL } from '../url';
 import { FaInfoCircle, FaPlay } from 'react-icons/fa';
 
 interface Props {
