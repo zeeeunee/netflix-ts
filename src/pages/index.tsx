@@ -3,9 +3,10 @@ import type { NextPage } from 'next';
 import Header from '@/components/Header';
 import requests from '@/utils/request';
 import { Movie } from '../../types';
+import Banner from '@/components/banner';
 
 interface Props {
-	origianl: Movie[];
+	original: Movie[];
 	top: Movie[];
 	sf: Movie[];
 	drama: Movie[];
@@ -26,7 +27,7 @@ const Home: NextPage<Props> = (props: Props) => {
 			</Head>
 			<Header />
 			<main className='relative'>
-				<h1 className=''>Main Page</h1>
+				<Banner original={props.original} />
 			</main>
 		</div>
 	);
