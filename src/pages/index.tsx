@@ -44,7 +44,11 @@ const Home: NextPage<Props> = (props: Props) => {
 	);
 };
 
-export const getStaticProps = async () => {
+//인증요청을 할떄마다 서버쪽에 pre-render page데이터와 클라이언트에 요청된 데이터를 매번 매칭시키기 위해서는
+//SSR방식으로 client에서 요청이 들어올때다 매번 서버에서 변경된 데이터로 다시 pre-build내보내기 위함
+//CSR방식을 쓰지 않는 이유는 비록 SSR방식이 요청이 들어올때마다 재 build를 해서 pre-render하긴 하지만 어쨌든 서버에서 완성된 데이터를 넘겨주는 것이므로 SEO방식에 좋음
+//설사 새로운 데이터로 새롭게 서버쪽에 pre-render할때 시간이 오래 걸린다고 하더라도 이미 첨 빌드때 만들어놓은 화면을 계속 유지하다가 데이터변경이 완료되면 하이드레이션되는 구조이므로 CSR방식보다는 SSR방식이 여러모로 유리
+export const getServerSideProps = async () => {
 	//Promie.all([promise, promise]).then(()=> 배열에 인수로 전달된 모든 promise객체의 상태가 fullfiled, rejected가 되야지만 이곳 then구문이 동기적으로 실행됨)
 	const [original, top, sf, drama, fantasy, comedy, action] = await Promise.all([
 		fetch(requests.original).then(res => res.json()),
@@ -64,8 +68,7 @@ export const getStaticProps = async () => {
 			fantasy: fantasy.results,
 			comedy: comedy.results,
 			action: action.results
-		},
-		revalidate: 60 * 60 * 60 * 24
+		}
 	};
 };
 

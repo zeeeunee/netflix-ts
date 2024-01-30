@@ -35,10 +35,10 @@ const Login: FunctionComponent = () => {
 		console.log('email', email);
 		console.log('password', password);
 		if (Login) {
-			//로그인실행
+			//Login(true) : 로그인함수 호출
 			await signIn(email, password);
 		} else {
-			//회원가입 실행
+			//Login(false) : 회원가입함수 호출
 			await signUp(email, password);
 		}
 	};
@@ -96,11 +96,17 @@ const Login: FunctionComponent = () => {
 						{errors.password && <span>Enter a valid Password</span>}
 					</div>
 
-					<button className='w-full rounded bg-[red] py-3 font-semibold'>Sign In</button>
+					{/* SignIn 버튼 클릭시 Login값 true로변경 */}
+					<button className='w-full rounded bg-[red] py-3 font-semibold' onClick={() => setLogin(true)}>
+						Sign In
+					</button>
 
 					<div className='text-[gray]'>
-						New to Netflix?
-						<button className='ml-4 text-white hover:underline'>Sign Up Now</button>
+						New to Nextflix?
+						{/* Sign Up 버튼 클릭시 Login 값 false로 변경 */}
+						<button className='text-white ml-4 hover:underline' onClick={() => setLogin(false)}>
+							Sign Up Now
+						</button>
 					</div>
 				</form>
 			</div>
