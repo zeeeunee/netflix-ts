@@ -19,8 +19,9 @@ interface Props {
 	action: Movie[];
 }
 
-//기존 Next Page 컴포넌트에 적용할 타입을 Next에 자체제공되고 있는 NextPage을 가져와서 페이지 타입 지정
-//해당 pageType을 우리가 만든것이 아니기 때문에 해당페이지에 전달되는 props의 type을 제네릭으로 지정
+//Page 컴포넌트에대한 타입은 Next에서 이미 제공하고 있는 함수관련 타입을 쓰고 있고 제네릭으로 props를 전달하고 있기 때문에
+//함수의 파라미터에 중복해서 타입을 전달할 필요가 없음
+//하지만 NexPage라는 기본 제공타입을 연결하지 않는다면 파라미터에 타입지정은 필수
 const Home: NextPage<Props> = (props: Props) => {
 	console.log(props);
 	return (
