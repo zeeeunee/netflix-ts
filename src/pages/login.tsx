@@ -15,14 +15,14 @@ const Login: FunctionComponent = () => {
 			</Head>
 
 			{/* frame */}
-			<div className='relative flex items-center justify-center w-full h-screen overflow-hidden'>
+			<div className='relative flex items-center justify-center w-full h-screen p-10 overflow-hidden md:p-0'>
 				{/* bg */}
 				<Image
 					src='https://rb.gy/p2hphi'
 					fill
 					priority
 					alt='login Page'
-					className='w-full h-screen z-[1] opacity-50 object-cover'
+					className='w-full h-screen z-[1] opacity-50 object-cover hidden md:block'
 					onLoadingComplete={() => setIsLoading(false)}
 				/>
 
@@ -48,7 +48,7 @@ const Login: FunctionComponent = () => {
 					<button className='w-full rounded bg-[red] py-3 font-semibold'>Sign In</button>
 
 					<div className='text-[gray]'>
-						New to Nextflix?
+						New to Netflix?
 						<button className='ml-4 text-white hover:underline'>Sign Up Now</button>
 					</div>
 				</form>
