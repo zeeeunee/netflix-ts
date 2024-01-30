@@ -26,6 +26,7 @@ const Login: FunctionComponent = () => {
 		formState: { errors } //formState객체값에서 다시 errors에 등록되어 있는 에러메세지만 추출
 	} = useForm<Inputs>();
 
+	//인증 성공시 handleSubmit에 의해서 자동으로 실행될 콜백함수
 	const join: SubmitHandler<Inputs> = async ({ email, password }) => {
 		console.log('email', email);
 		console.log('password', password);
@@ -59,17 +60,30 @@ const Login: FunctionComponent = () => {
 				/>
 
 				{/* logo */}
-				<Image width={150} height={150} src={logo} alt='nextflix' className='absolute left-4 top-4 cursor-pointer md:left-10 md:top-6 z-[3]' />
+				<Image width={150} height={150} src={logo} alt='netflix' className='absolute left-4 top-4 cursor-pointer md:left-10 md:top-6 z-[3]' />
 
-				{/* submit이벤트 발생시 hadleSubmit이 인증처리를 해주고 인증의 결과값을 등록된 콜백함수에 전달 */}
+				{/* submit이벤트 발생시 handleSubmit이 인증처리를 해주고 인증의 결과값을 등록된 콜백함수에 전달 */}
 				<form onSubmit={handleSubmit(join)} className='relative z-[5] bg-black/70 py-10 px-6 space-y-8'>
 					<h1 className='text-4xl font-semibold'>Sign In</h1>
 
-					<input type='email' placeholder='Email' className='input' {...register('email', { required: true })} />
-					{/* 인증 실패시 비구조할당으로 뽑아낸 errors객체에 전달한 property명으로 에러값 전달 */}
-					{errors.email && <span>Enter a valid Email</span>}
-					<input type='password' placeholder='Password' className='input' {...register('password', { required: true })} />
-					{errors.password && <span>Enter a valid Password</span>}
+					<div className='space-y-4'>
+						<input
+							type='text'
+							placeholder='Email'
+							className='input'
+							{...register('email', { required: true, minLength: 5, maxLength: 20, pattern: /@/ })} //정규표현식 @포함
+						/>
+						{/* 인증 실패시 비구조할당으로 뽑아낸 errors객체에 전달한 property명으로 에러값 전달 */}
+						{errors.email && <span>Enter a valid Email</span>}
+						<input
+							type='password'
+							placeholder='Password'
+							className='input'
+							{...register('password', { required: true, minLength: 4, maxLength: 10, pattern: /[!@#$%^&*()]+[a-zA-Z]+[0-9]+/ })}
+							//특수문자+영문+숫자+이어지는값 순으로 작성
+						/>
+						{errors.password && <span>Enter a valid Password</span>}
+					</div>
 
 					<button className='w-full rounded bg-[red] py-3 font-semibold'>Sign In</button>
 
