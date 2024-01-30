@@ -66,6 +66,23 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 			.catch(err => alert(err.message))
 			.finally(() => setLoading(false));
 	};
+	//로그인함수
+	const signIn = async (email: string, password: string) => {
+		await signInWithEmailAndPassword(auth, email, password)
+			.then(userInfo => {
+				setUserInfo(userInfo.user);
+				router.push('/');
+			})
+			.catch(err => alert(err.message));
+	};
 
+	//로그아웃 함수
+	const logout = async () => {
+		signOut(auth)
+			.then(() => {
+				setUserInfo(null);
+			})
+			.catch(err => alert(err.message));
+	};
 	return <AuthContext.Provider value={{ UserInfo, signIn, signOut, signUp, Loading, Errors }}>{children}</AuthContext.Provider>;
 };
