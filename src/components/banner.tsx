@@ -4,7 +4,7 @@ import { Movie } from '../../types';
 import { useState, useEffect, useRef } from 'react';
 import { baseURL } from '@/url';
 import { FaPlay, FaInfoCircle } from 'react-icons/fa';
-import { modalState } from '@/recoil/globalAtom';
+import { modalState, movieState } from '@/recoil/globalAtom';
 import { useRecoilState } from 'recoil';
 
 interface Props {
@@ -14,6 +14,7 @@ const Banner: FunctionComponent<Props> = ({ original }) => {
 	const loading = useRef<HTMLDivElement>(null);
 	const [Movie, setMovie] = useState<Movie | null>(null);
 	const [ShowModal, setShowModal] = useRecoilState(modalState);
+	const [MovieInfo, setMovieInfo] = useRecoilState(movieState);
 
 	useEffect(() => {
 		const randomNum = Math.floor(Math.random() * original.length);
@@ -52,8 +53,8 @@ const Banner: FunctionComponent<Props> = ({ original }) => {
 						<button
 							className='bannerButton bg-[red]'
 							onClick={() => {
-								console.log('click');
 								setShowModal(true);
+								setMovieInfo(Movie);
 							}}>
 							<FaPlay />
 							Play
