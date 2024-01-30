@@ -6,6 +6,9 @@ import { Movie } from '../../types';
 import Banner from '@/components/Banner';
 import List from '@/components/List';
 import getData from '@/hooks/useAuth';
+import Modal from '@/components/Modal';
+import { useRecoilValue } from 'recoil';
+import { modalState } from '@/recoil/globalAtom';
 
 interface Props {
 	original: Movie[];
@@ -20,6 +23,7 @@ interface Props {
 //함수의 파라미터에 중복해서 타입을 전달할 필요가 없음
 //하지만 NexPage라는 기본 제공타입을 연결하지 않는다면 파라미터에 타입지정은 필수
 const Home: NextPage<Props> = props => {
+	const showModal = useRecoilValue(modalState);
 	const { InitialLoading } = getData();
 	return (
 		<div className='relative w-full h-screen overflow-x-hidden scrollbar-thin scrollbar-thumb-[red] scrollbar-track-[transparent]'>
@@ -36,6 +40,7 @@ const Home: NextPage<Props> = props => {
 					<List key={idx} movies={category} title={Object.keys(props)[idx]} />
 				))}
 			</main>
+			{showModal && <Modal />}
 		</div>
 	);
 };

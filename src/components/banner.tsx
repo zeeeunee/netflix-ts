@@ -14,7 +14,6 @@ const Banner: FunctionComponent<Props> = ({ original }) => {
 	const loading = useRef<HTMLDivElement>(null);
 	const [Movie, setMovie] = useState<Movie | null>(null);
 	const [ShowModal, setShowModal] = useRecoilState(modalState);
-	console.log(ShowModal);
 
 	useEffect(() => {
 		const randomNum = Math.floor(Math.random() * original.length);
