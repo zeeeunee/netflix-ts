@@ -5,6 +5,7 @@ import { BounceLoader } from 'react-spinners';
 import { useState } from 'react';
 import logo from '@/public/logo.svg';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import getData from '@/hooks/useAuth';
 
 //npm i react-hook-form
 
@@ -14,8 +15,11 @@ interface Inputs {
 }
 
 const Login: FunctionComponent = () => {
+	const { signIn, signUp } = getData();
+	console.log(signIn);
 	const [IsLoading, setIsLoading] = useState<boolean>(true);
 	const [Login, setLogin] = useState<boolean>(false);
+	const [LoginVal, setLoginVal] = useState({ email: '', password: '' });
 
 	//register: 원하는 input요소를 전개연산자로 등록해서 값을 관리
 	//handleSubmit: submit이벤트 발생시 register에 등록된 input값들의 인증처리 핸들러함수를 콜백으로 전달받음
@@ -30,6 +34,13 @@ const Login: FunctionComponent = () => {
 	const join: SubmitHandler<Inputs> = async ({ email, password }) => {
 		console.log('email', email);
 		console.log('password', password);
+		if (Login) {
+			//로그인실행
+			await signIn(email, password);
+		} else {
+			//회원가입 실행
+			await signUp(email, password);
+		}
 	};
 
 	return (
