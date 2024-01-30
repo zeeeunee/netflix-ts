@@ -30,8 +30,9 @@ const Home: NextPage<Props> = (props: Props) => {
 				<title>NETFLIX</title>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Header />
+
 			<main className='relative'>
+				<Header />
 				<Banner original={props.original} />
 				{/* <List movies={props.sf} title={'Science Fiction'} />
 				<List movies={props.drama} title={'Drama'} /> */}
