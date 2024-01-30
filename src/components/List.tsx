@@ -48,8 +48,14 @@ const List: FunctionComponent<Props> = ({ movies, title }) => {
 				})}
 			</ul>
 
-			<FaAngleLeft className='absolute top-0 bottom-0 left-2 z-[5] m-auto h-12 cursor-pointer' onClick={() => handleClick('left')} />
-			<FaAngleRight className='absolute top-0 bottom-0 right-2 z-[5] m-auto h-12 cursor-pointer ' onClick={() => handleClick('right')} />
+			<FaAngleLeft
+				className='absolute top-0 bottom-0 left-2 z-[5] m-auto h-12 cursor-pointer opacity-0 transition-opacity duration-[.5s] group-hover:opacity-100'
+				onClick={() => handleClick('left')}
+			/>
+			<FaAngleRight
+				className='absolute top-0 bottom-0 right-2 z-[5] m-auto h-12 cursor-pointer opacity-0 transition-opacity duration-[.5s] group-hover:opacity-100'
+				onClick={() => handleClick('right')}
+			/>
 		</article>
 	);
 };
