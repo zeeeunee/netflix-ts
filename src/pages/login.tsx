@@ -102,7 +102,7 @@ const Login: FunctionComponent = () => {
 					</button>
 
 					<div className='text-[gray]'>
-						New to Nextflix?
+						New to Netflix?
 						{/* Sign Up 버튼 클릭시 Login 값 false로 변경 */}
 						<button className='text-white ml-4 hover:underline' onClick={() => setLogin(false)}>
 							Sign Up Now
